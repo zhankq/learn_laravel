@@ -59,34 +59,131 @@ class Funchelp extends Controller {
          */
         //array_first 函数返回数组中第一个通过指定测试的元素：
         /*
-        $array = [100, 200, 300];
+          $array = [100, 200, 300];
           $first = array_first($array, function ($value, $key) {
           return $value >= 150;
           },'asd');
           echo $first;
          */
-        
+
 #array_flatten 函数将多维数组平铺为一维数组。
         /*
-        $array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
-        $flattened = array_flatten($array);
-        print_r($flattened);
+          $array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
+          $flattened = array_flatten($array);
+          print_r($flattened);
          */
 #array_forget 函数使用「点」符号从深度嵌套数组中移除给定的键 / 值对：这是个引用函数
         /*
-        $array = ['products' => ['desk' => ['price' => 100]],'chairs'=>'good jobs'];
-        array_forget($array, 'products.desk');
-        var_dump($array);
+          $array = ['products' => ['desk' => ['price' => 100]],'chairs'=>'good jobs'];
+          array_forget($array, 'products.desk');
+          var_dump($array);
          * 
-            array(2) {
-              ["products"]=>
-              array(0) {
-              }
-              ["chairs"]=>
-              string(9) "good jobs"
-            }
+          array(2) {
+          ["products"]=>
+          array(0) {
+          }
+          ["chairs"]=>
+          string(9) "good jobs"
+          }
          */
-        
+        //Arr::get 函数使用「.」符号从深度嵌套的数组中根据指定键检索值：
+        /*
+          $array = ['products' => ['desk' => ['price' => 100]]];
+          $price = Arr::get($array, 'products.desk');
+          print_r($price);
+         */
+//        Arr::has 函数使用「.」符号查找数组中是否存在指定的一个或多个键：
+        /*
+          $array = ['product' => ['name' => 'Desk', 'price' => 100]];
+          $contains = Arr::has($array, ['product.name']);
+          //        $contains = Arr::has($array, ['product.name','product.price']);
+          var_dump($contains);
+         */
+        //Arr::last 函数返回数组中通过指定测试的最后一个元素：
+        /*
+          $array = [100, 200, 300, 110];
+          $last = Arr::last($array, function ($value, $key) {
+          return $value >= 150;
+          });
+          //300
+         */
+        /*
+          //Arr::only 函数只返回给定数组中指定的键／值对：
+          $array = ['name' => 'Desk', 'price' => 100, 'orders' => 10];
+          $slice = Arr::only($array, ['name', 'price']);
+          print_r($slice);
+         */ //// ['name' => 'Desk', 'price' => 100]
+        // 
+//        
+        /*   Arr::pluck 函数从数组中检索给定键的所有值：
+          $array = [
+          ['developer' => ['id' => 1, 'name' => 'Taylor']],
+          ['developer' => ['id' => 2, 'name' => 'Abigail']],
+          ];
+          $ary = Arr::pluck($array, 'developer.id');
+          print_r($ary);
+          //        你也可以指定获取的结果的键：
+          $names = Arr::pluck($array, 'developer.name', 'developer.id');
+          print_r($names);
+         * 
+         */
+        //Arr::prepend 函数将一个值插入到数组的开始位置：
+        /*
+        $array = ['one', 'two', 'three', 'four'];
+          $array = Arr::prepend($array, 'zero');
+          $array = Arr::prepend($array, 'zero2','a');
+
+          print_r($array);
+          //Arr::pull()
+          //Arr::pull 函数从数组中返回指定键的值并删除此键／值对：
+          $name = Arr::pull($array, 'name');
+          // Arr::random 函数从数组中随机返回一个值： //与array_rand差别着实不大
+          $random = Arr::random($array,2);
+          print_r($random);
+          //        Arr::set 函数使用「.」符号在多维数组中设置指定键的值：
+          $array = ['products' => ['desk' => ['price' => 100]]];
+          Arr::set($array, 'products.desk.price', 200);
+          Arr::set($array, 'products.desk.test', 6666);
+          print_r($array);
+
+          //        Arr::sort 函数根据数组的值对数组进行排序：
+          $sorted = Arr::sort($array);
+          print_r($sorted);
+
+         */
+        /* 对内部作了排序
+          //        Arr::sortRecursive 函数使用 sort 函数对数组进行递归排序：
+
+          $array = [
+          ['Roman', 'Taylor', 'Li'],
+          ['PHP', 'Ruby', 'JavaScript'],
+          ['one' => 1, 'two' => 2, 'three' => 3],
+          ];
+
+          $sorted = Arr::sortRecursive($array);
+
+         */
+        /*
+          [
+          ['JavaScript', 'PHP', 'Ruby'],
+          ['one' => 1, 'three' => 3, 'two' => 2],
+          ['Li', 'Roman', 'Taylor'],
+          ]
+         */
+        //Arr::where 函数使用给定闭包返回的结果过滤数组： *****
+        /*
+        $array = [100, '200', 300, '400', 500];
+        //array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
+        $filtered = Arr::where($array, function ($value, $key) {
+                    return is_string($value);
+                });
+        print_r($filtered);
+       */
+//        Arr::wrap 函数将给定的值变为一个数组，如果给定的值已经是数组，则不改变：
+        /* 在未知返回值的状态的情况下或许能用到吧？
+        $string = 'Laravel';
+        $array = Arr::wrap($string);
+        */
         
     }
 
