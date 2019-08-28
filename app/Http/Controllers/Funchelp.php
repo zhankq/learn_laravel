@@ -7,7 +7,9 @@ use Illuminate\Support\Arr;
 
 class Funchelp extends Controller {
 
-    //数组 & 对象
+    /**
+     * 数组 & 对象
+     */
     public function used_array() {
         /*
           #@deprecated Arr::add() should be used directly instead. Will be removed in Laravel 6.0.
@@ -183,23 +185,89 @@ class Funchelp extends Controller {
         /* 在未知返回值的状态的情况下或许能用到吧？
           $string = 'Laravel';
           $array = Arr::wrap($string);
+
+
+          //        data_fill 函数使用「.」符号在多维数组或对象内设置缺省值：
+          $data = ['products' => ['desk' => ['price' => 100]]];
+          data_fill($data, 'products.desk.discount', 10);
+          data_fill($data, 'products.desk.price', 200);
+          print_r($data);
+
+          $data = [
+          'products' => [
+          ['name' => 'Desk 1', 'price' => 100],
+          ['name' => 'Desk 2'],
+          ],
+          ];
+
+          data_fill($data, 'products.*.price', 200);
+          print_r($data);
          */
+//        data_get 函数使用「点」符号从嵌套数组或对象中检索值：
+        /*
+          $data = ['products' => ['desk' => ['price' => 100]]];
+          $price = data_get($data, 'products.desk.price');
+          print_r($price);
 
-//        data_fill 函数使用「.」符号在多维数组或对象内设置缺省值：
-        $data = ['products' => ['desk' => ['price' => 100]]];
-        data_fill($data, 'products.desk.discount', 10);
-        data_fill($data, 'products.desk.price', 200);
-        print_r($data);
+          $data = ['products' => ['desk' => ['price' => 100]]];
+          data_set($data, 'products.desk.price', 200);
+          print_r($data);
+          //        这个函数也接受通配符「*」，并相应地在目标上设置值：
+          $data = [
+          'products' => [
+          ['name' => 'Desk 1', 'price' => 100],
+          ['name' => 'Desk 2', 'price' => 150],
+          ],
+          ];
+          data_set($data, 'products.*.price', 200);
+          print_r($data);
+          $array = [100, 200, 300];
+          $first = head($array);
+          print_r($first);
+          //======================================================================
+          $array = [100, 200, 300];
+          $last = last($array);
+          echo $last;
+         */
+    }
+
+    /**
+     * 路径函数
+     */
+    public function used_route() {
+        //app_path 函数返回 app 目录的完整路径．你也可以使用 app_path 函数来设置应用程序 app 目录的完整路径：
+        /*
+          //        $path = app_path();
+          //        print_r($path);
+          //        $path = app_path('Http/Controllers/Controller.php');
+          //        print_r($path);
+        //base_path 函数返回项目根目录的完整路径．你也可以使用 base_path 函数设置项目根目录的完整路径：
+        $path = base_path();
+        echo $path,"\n";
+        $path = base_path('vendor/bin');
+        echo $path;
+        //config_path 函数返回 config 目录的完整路径．你也可以使用 config_path 函数设置应用程序 config 目录中给定文件的完整路径：
+        $config = config_path();
+        print_r($config);
         
-        $data = [
-            'products' => [
-                    ['name' => 'Desk 1', 'price' => 100],
-                    ['name' => 'Desk 2'],
-            ],
-        ];
-
-        data_fill($data, 'products.*.price', 200);
-        print_r($data);
+//        database_path 函数返回 database 目录的完整路径．你也可以使用 database_path 函数来设置 database 目录中给定文件的完整路径：
+        $path = database_path();
+        print_r($path);
+        $path = mix('css/app.css');
+        print_r($path);
+        //public_path 函数返回 public 目录的完整路径．你也可以使用 public_path 函数来生成 public 目录中给定文件的完整路径：
+        $path = public_path();
+        print_r($path);
+//        resource_path 函数返回 resources 目录的完整路径．你也可以使用 resource_path 函数来生成资源文件中给定文件的完整路径
+        $path = resource_path();
+        print_r($path);
+         */
+//        storage_path 函数返回 storage 目录的完整路径．你也可以使用 storage_path 函数来设置存储目录下指定文件的完整路径 ：
+        $path = storage_path();
+        print_r($path);
+    }
+    
+    public function used_string(){
         
     }
 
