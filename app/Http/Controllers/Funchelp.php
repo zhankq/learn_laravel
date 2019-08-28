@@ -129,7 +129,7 @@ class Funchelp extends Controller {
          */
         //Arr::prepend 函数将一个值插入到数组的开始位置：
         /*
-        $array = ['one', 'two', 'three', 'four'];
+          $array = ['one', 'two', 'three', 'four'];
           $array = Arr::prepend($array, 'zero');
           $array = Arr::prepend($array, 'zero2','a');
 
@@ -172,18 +172,34 @@ class Funchelp extends Controller {
          */
         //Arr::where 函数使用给定闭包返回的结果过滤数组： *****
         /*
-        $array = [100, '200', 300, '400', 500];
-        //array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
-        $filtered = Arr::where($array, function ($value, $key) {
-                    return is_string($value);
-                });
-        print_r($filtered);
-       */
+          $array = [100, '200', 300, '400', 500];
+          //array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
+          $filtered = Arr::where($array, function ($value, $key) {
+          return is_string($value);
+          });
+          print_r($filtered);
+         */
 //        Arr::wrap 函数将给定的值变为一个数组，如果给定的值已经是数组，则不改变：
         /* 在未知返回值的状态的情况下或许能用到吧？
-        $string = 'Laravel';
-        $array = Arr::wrap($string);
-        */
+          $string = 'Laravel';
+          $array = Arr::wrap($string);
+         */
+
+//        data_fill 函数使用「.」符号在多维数组或对象内设置缺省值：
+        $data = ['products' => ['desk' => ['price' => 100]]];
+        data_fill($data, 'products.desk.discount', 10);
+        data_fill($data, 'products.desk.price', 200);
+        print_r($data);
+        
+        $data = [
+            'products' => [
+                    ['name' => 'Desk 1', 'price' => 100],
+                    ['name' => 'Desk 2'],
+            ],
+        ];
+
+        data_fill($data, 'products.*.price', 200);
+        print_r($data);
         
     }
 
