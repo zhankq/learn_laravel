@@ -337,7 +337,68 @@ class Funchelp extends Controller {
           echo $truncated;
          */
 //        The Str::orderedUuid 方法高效生成一个可存储在索引数据库列中的「第一时间」 UUID：
-        Str::orderedUuid();
+//        Str::orderedUuid(); *********************
+//        Str::plural 函数将字符串转换为复数形式。该函数目前仅支持英文：
+        /*
+          $plural = Str::plural('child');
+          echo $plural;
+         */
+//        你可以提供一个整数作为函数的第二个参数来检索字符串的单数或复数形式：
+        /*
+          $plural = Str::plural('new', 2);
+          var_dump($plural);
+         */
+//        Str::random 函数生成一个指定长度的随机字符串。这个函数用 PHP 的 random_bytes 函数：
+        /* echo Str::random(15); */
+
+        /*
+          //        Str::replaceArray 函数使用数组顺序替换字符串中的给定值：
+          $string = 'The event will take place between ? and ?';
+          $replaced = Str::replaceArray('?', ['8:30', '9:00'], $string);
+          echo $replaced;
+         */
+//        Str::replaceFirst 函数替换字符串中给定值的第一个匹配项：
+        /*
+          $replaced = Str::replaceFirst('the', 'a', 'the quick brown fox jumps over the lazy dog');
+          echo $replaced;// a quick brown fox jumps over the lazy dog
+         */
+        //Str::replaceLast 函数替换字符串中最后一次出现的给定值：
+        /*
+          //        echo $replaced = Str::replaceLast('the', 'a', 'the quick brown fox jumps over the lazy dog');
+          //// the quick brown fox jumps over a lazy dog
+         */
+        //Str::singular 函数将字符串转换为单数形式。该函数目前仅支持英文：
+        /*
+          $singular = Str::singular('cars');
+          var_dump($singular);
+         */
+        //Str::slug 函数将给定的字符串生成一个 URL 友好的 「slug」 ：
+        /*
+          echo $slug = Str::slug('Laravel 5 Framework', '-');//// laravel-5-framework
+         */
+//        Str::start 函数将给定值添加到给定字符串的开始位置（如果字符串尚未以给定值开始）：
+        /*
+          echo $adjusted = Str::start('this/string', '/');
+         */
+        //Str::studly 函数将给定的字符串转换为 「变种驼峰命名」：
+        /*
+          $converted = Str::studly('foo_bar');
+          echo $converted;
+         */
+        //Str::title 函数将给定的字符串转换为「首字母大写」：
+        //mb_convert_case($value, MB_CASE_TITLE, 'UTF-8');
+        /*
+          $converted = Str::title('a nice title uses the correct case');
+          echo $converted;
+          echo trans('messages.welcome');
+         */
+//        echo trans_choice('messages.welcome', 2);
+//        Str::uuid 方法生成一个 UUID（版本 4）：
+//        return (string) Str::uuid();
+    }
+
+    public function used_urls() {
+        
     }
 
 }

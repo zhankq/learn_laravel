@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/funcary',"Funchelp@used_array");
 Route::get('/funroute',"Funchelp@used_route");
 Route::get('/funstring',"Funchelp@used_string");
+Route::get('/funsurls',"Funchelp@used_urls");
