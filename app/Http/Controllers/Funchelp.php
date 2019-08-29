@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class Funchelp extends Controller {
 
@@ -241,34 +242,102 @@ class Funchelp extends Controller {
           //        print_r($path);
           //        $path = app_path('Http/Controllers/Controller.php');
           //        print_r($path);
-        //base_path 函数返回项目根目录的完整路径．你也可以使用 base_path 函数设置项目根目录的完整路径：
-        $path = base_path();
-        echo $path,"\n";
-        $path = base_path('vendor/bin');
-        echo $path;
-        //config_path 函数返回 config 目录的完整路径．你也可以使用 config_path 函数设置应用程序 config 目录中给定文件的完整路径：
-        $config = config_path();
-        print_r($config);
-        
-//        database_path 函数返回 database 目录的完整路径．你也可以使用 database_path 函数来设置 database 目录中给定文件的完整路径：
-        $path = database_path();
-        print_r($path);
-        $path = mix('css/app.css');
-        print_r($path);
-        //public_path 函数返回 public 目录的完整路径．你也可以使用 public_path 函数来生成 public 目录中给定文件的完整路径：
-        $path = public_path();
-        print_r($path);
-//        resource_path 函数返回 resources 目录的完整路径．你也可以使用 resource_path 函数来生成资源文件中给定文件的完整路径
-        $path = resource_path();
-        print_r($path);
+          //base_path 函数返回项目根目录的完整路径．你也可以使用 base_path 函数设置项目根目录的完整路径：
+          $path = base_path();
+          echo $path,"\n";
+          $path = base_path('vendor/bin');
+          echo $path;
+          //config_path 函数返回 config 目录的完整路径．你也可以使用 config_path 函数设置应用程序 config 目录中给定文件的完整路径：
+          $config = config_path();
+          print_r($config);
+
+          //        database_path 函数返回 database 目录的完整路径．你也可以使用 database_path 函数来设置 database 目录中给定文件的完整路径：
+          $path = database_path();
+          print_r($path);
+          $path = mix('css/app.css');
+          print_r($path);
+          //public_path 函数返回 public 目录的完整路径．你也可以使用 public_path 函数来生成 public 目录中给定文件的完整路径：
+          $path = public_path();
+          print_r($path);
+          //        resource_path 函数返回 resources 目录的完整路径．你也可以使用 resource_path 函数来生成资源文件中给定文件的完整路径
+          $path = resource_path();
+          print_r($path);
          */
 //        storage_path 函数返回 storage 目录的完整路径．你也可以使用 storage_path 函数来设置存储目录下指定文件的完整路径 ：
         $path = storage_path();
         print_r($path);
     }
-    
-    public function used_string(){
-        
+
+    public function used_string() {
+//        __ 函数使用你的 本地化文件来翻译给定的翻译字符串或翻译键：
+        /*
+          echo __('messages.welcome');
+          echo __('Welcome to our application'); #cn.json
+         */
+//        camel_case 函数将给定的字符串转换为「驼峰命名」：
+        /* echo camel_case('hello_world'); */
+//        class_basename 返回给定类删除命名空间的类名：
+        /*
+          $class = class_basename('Foo\Bar\Baz'); #Baz
+          echo $class;
+         */
+//        e 函数将 double_encode 选项设置为 false 来运行 PHP 的 htmlspecialchars 函数：
+        /* echo e('<html>foo</html>'); */
+//        ends_with 函数判断给定的字符串是否以给定的值结尾：
+        /*
+          $result = Str::endsWith('This is my 你', '你');
+          var_dump($result);
+         */
+//        Str::kebab 函数将给定的「驼峰式」字符串转化为 kebab-case「短横式」字符串：
+        /* echo Str::kebab("KebiBright"); */
+//        preg_replace_array 函数使用数组顺序替换字符串中的给定模式：
+        /*
+          $string = 'The event will take place between :start and :end';
+          $replaced = preg_replace_array('/:[a-z_]+/', ['8:30', '9:00'], $string);
+          print_r($replaced);
+         */
+//        Str::snake 函数将给定的字符串转换为 snake_case「蛇式」： #可以带参数
+        /*
+          $converted = Str::snake('fooBar');
+          echo $converted;
+         */
+//        Str::startsWith 函数判断给定的字符串的开头是否是指定值：与这一样var_dump(strpos('This is my name', 'This')===0);
+        /*
+          $result = Str::startsWith('This is my name', 'This');
+          var_dump($result);
+          var_dump(strpos('This is my name', 'This')===0);
+         */
+//        Str::after 函数返回在字符串中指定值之后的所有内容：
+        /* echo $slice = Str::after('This is my name', 'This is'); */
+//        Str::before 函数返回在字符串中指定值之前的所有内容：
+        /* echo $slice = Str::before('This is my name', 'my name'); */
+//Str::contains 函数判断给定的字符串是否包含给定的值（区分大小写）：
+        /*
+          $contains = Str::contains('This is my name', 'This');
+          var_dump($contains);
+
+         * 你也可以传递一个数组形式的值来判断字符串中是否包含任何值：
+          $contains = Str::contains('This is my name', ['my', 'foo']);
+          var_dump($contains);
+         */
+//        Str::finish 函数将给定的字符串以给定的值结尾返回（如果它尚未以给定值结尾）：
+        /*
+          $adjusted = Str::finish('this/string', '/');
+          var_dump($adjusted);
+         */
+//        Str::is 函数判断给定的字符串是否匹配给定的模式。星号 * 可以用来表示通配符：
+        /*
+          $matches = Str::is('foo*', 'foobar');
+          var_dump($matches);
+         */
+//        Str::limit 函数按给定的长度截断给定的字符串：
+//        $truncated = Str::limit('The quick brown fox jumps over the lazy dog', 20);
+        /*
+          $truncated = Str::limit('可以用来表示通配符', 2);
+          echo $truncated;
+         */
+//        The Str::orderedUuid 方法高效生成一个可存储在索引数据库列中的「第一时间」 UUID：
+        Str::orderedUuid();
     }
 
 }
