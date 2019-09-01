@@ -1,7 +1,6 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\{Arr,Str}; //这个写法等同于下面的那两行
 //use Illuminate\Support\Arr;
