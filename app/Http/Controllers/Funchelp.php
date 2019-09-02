@@ -1,5 +1,4 @@
-﻿<?php
-
+<?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\{Arr,Str}; //这个写法等同于下面的那两行
@@ -398,7 +397,8 @@ class Funchelp extends Controller {
     }
 
     public function used_urls() {
-        
+        $url = action('Funchelp@used_urls');
+        echo $url;
     }
 
 }
