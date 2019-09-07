@@ -410,7 +410,8 @@ class Funchelp extends Controller {
 //        $url = secure_asset('img/photo2.jpg');
 //        echo $url;
 //        route 函数为给定的命名路由生成一个 URL ：
-
+        $url = route('func');
+        echo $url;
 
 
     }
