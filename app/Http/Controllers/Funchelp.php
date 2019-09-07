@@ -397,8 +397,22 @@ class Funchelp extends Controller {
     }
 
     public function used_urls() {
-        $url = action('Funchelp@used_urls');
-        echo $url;
+//        $url = action('Funchelp@used_urls');
+//        $url = action('Funchelp@used_urls', ['id' => 1]);
+//        echo $url;
+//        asset 函数使用当前请求的协议（ HTTP 或 HTTPS ）为资源文件生成 URL ：
+//        您可以通过 ASSET_URL 在 .env 文件中设置变量来配置资产 URL 主机。如果您在 Amazon S3 等外部服务上托管资产
+//        默认没有设置
+        
+//        $url = asset('img/photo.jpg');
+//        echo $url;
+//        secure_asset 函数使用 HTTPS 协议为资源文件生成 URL：
+//        $url = secure_asset('img/photo2.jpg');
+//        echo $url;
+//        route 函数为给定的命名路由生成一个 URL ：
+
+
+
     }
 
 }
