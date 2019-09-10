@@ -426,24 +426,19 @@ class Funchelp extends Controller {
         echo $current,"\n";
         
         echo "<a href='http://laravel.ifentong.com/funsurls?id=333'>ssssss</a>";
-<<<<<<< HEAD
         
-=======
         //完整地址带参
->>>>>>> 1034f95b93912fb27c4a80bf87c65a6e5c16ff7c
         $full = url()->full();
         echo $full,"\n";
         
         $previous = url()->previous();
         echo $previous;
-<<<<<<< HEAD
-=======
     }
+    
     
     public function others()
     {
         
->>>>>>> 1034f95b93912fb27c4a80bf87c65a6e5c16ff7c
     }
     
     

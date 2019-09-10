@@ -18,9 +18,6 @@ Route::get('/', function () {
 Route::get('/funcary',"Funchelp@used_array");
 Route::get('/funroute',"Funchelp@used_route");
 Route::get('/funstring',"Funchelp@used_string");
-<<<<<<< HEAD
-Route::get('/funsurls',"Funchelp@used_urls")->name('func');
-=======
+
 Route::get('/funsurls',"Funchelp@used_urls")->name('func');
 Route::get('/others',"Funchelp@others");
->>>>>>> 1034f95b93912fb27c4a80bf87c65a6e5c16ff7c
