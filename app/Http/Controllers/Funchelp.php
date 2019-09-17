@@ -438,7 +438,24 @@ class Funchelp extends Controller {
     
     public function others()
     {
+//        abort(403);
+//        abort(403, 'Unauthorized.');
+        //如果给定的布尔表达式计算结果为 true， abort_if 函数将抛出一个 HTTP 异常：
+//        abort_if(! Auth::user()->isAdmin(), 403);
+//        与 abort_if 作用相反
+//        abort_unless(Auth::user()->isAdmin(), 403);
+//        app 函数返回 服务容器 实例：
+//        $container = app();
+//        print_r($container);
+        //你可以传递一个类或接口名称来从容器中解析它：
+//        $api = app('HelpSpot\API');
         
+        $user = auth()->user();
+        var_dump($user);
+
+
+
+
     }
     
     
