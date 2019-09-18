@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\{
     Arr,
@@ -12,6 +13,184 @@ use Illuminate\Support\{
 //use Illuminate\Support\Str;
 
 class Funchelp extends Controller {
+
+//    dispatch 函数将给定的 任务 推送到 Laravel 任务队列中：
+//$result = dispatch_now(new App\Jobs\SendEmails);
+//event(new UserRegistered($user)); event 函数向监听器派发给定 事件 ：
+//broadcast 函数将 广播 给定的 事件 到它的监听器：
+//factory 函数根据给定的类、名称和数量创建模型工厂构造器。它能够被用于 测试 或 数据填充：
+//tap 函数接受两个参数： 任意 $value 和闭包。 $value 将被传递给闭包，并被 tap 函数返回。与闭包的返回值无关：
+
+
+
+
+
+
+    public function others() {
+
+
+//        with 函数返回给定的值。如果传递了一个 Closure 给第二个参数，那么会返回 Closure 执行的结果：
+        $callback = function ($value) {
+            return (is_numeric($value)) ? $value * 2 : 0;
+        };
+
+        $result = with(5, $callback);
+
+        var_dump($result);
+
+//        view 函数获取一个 view 实例：
+//        return view('test');
+
+
+        /*
+          //        value 函数返回给定值。如果传递 闭包 给此函数，将执行 闭包 并返回闭包调用的结果：把两步分成了一步上了
+          //感觉作用不大，如果 要重复使用会定义成变量或函数 ，如果 是只用一次，直接过程化的方式处理就可以了
+          $result = value(function () {
+          return false;
+          });
+          var_dump($result);
+
+          //        validator 函数根据指定的参数创建一个新的 验证器 实例。方便起见可以用它来代替 Validator facade：
+
+
+          //        还可以传递一个默认值或 闭包 作为该函数的第三个参数。如果给定的值为空时，返回该值：
+
+          //        $result = transform(null, function(){}, 'The value is blank');
+
+
+          //        trait_uses_recursive 返回被 trait 使用的全部 trait：
+
+
+          //        在给定的布尔表达式结果为 false 时，throw_unless 函数抛出给定的异常：
+          //        在给定的布尔表达式结果为 true 时，throw_if 函数抛出给定的异常：
+
+
+          //today 函数根据当前日期创建新的 Illuminate\Support\Carbon 实例：
+          $today = today();
+          var_dump($today);
+
+
+
+          //        tap 函数接受两个参数： 任意 $value 和闭包。 $value 将被传递给闭包，并被 tap 函数返回。与闭包的返回值无关：
+          //        可以向该函数传递键值对数组来设置 session 值：
+          session(['chairs' => 7, 'instruments' => 3]);
+          //        session 函数用于获取或设置 session 值：
+          $value = session('key');
+
+          //        print_r($_SESSION);
+
+          //        retry 函数尝试执行给定的回调，直到达到给定的最大尝试阈值。如果回调没有抛出异常，回调返回值将被返回。
+          //        如果回调抛出异常，将自动重试。达到最大尝试次数，将抛出异常：
+
+          //        response 函数创建 响应 实例，或者获得响应工厂的实例：
+          //        return response('Hello World', 200);
+          //        return response()->json(['foo' => 'bar'], 200);
+
+
+
+
+          //        resolve 函数使用 服务容器 解析给定名称的类或接口的实例：
+          $api = resolve('Illuminate\Cookie\CookieServiceProvider');
+          return $api;
+
+
+          //        rescue 函数执行给定的闭包，并且捕获其执行过程中引发的任何异常。捕获的所有异常都将传递给 异常处理器 的 report 方法；然后继续处理此次请求：
+          //        return rescue(function () {
+          //            return $this->method();
+          //        });
+          return rescue(function () {
+          return $this->method();
+          }, false);
+
+          return rescue(function () {
+          return $this->method();
+          }, function () {
+          return $this->failure();
+          });
+
+          //request 函数返回当前 请求 实例，或者获取一个输入项：
+          $request = request();
+          $value = request('key', '$default');
+          var_dump($request);
+
+          //        report 函数使用 异常处理器 的 report 方法报告异常：
+          //        redirect 函数返回 重定向 HTTP 响应，如果不带参数调用则返回重定向器实例：
+
+
+
+          //        policy 方法为给定的类获取 policy 实例：
+          $policy = policy(App\User::class);
+          var_dump($policy);
+          // optional 函数接受任何参数，并允许你访问该对象上的属性或调用其方法。如果给定对象为 null，属性或方法将返回 null 而不是引发错误：
+          $user = new \stdClass();
+          return optional($user->address)->street;
+
+
+          //         old 函数 获取 刷入 session 的 旧的输入值 :
+          $value = old('value');
+          var_dump($value);
+
+          $now = now();
+          var_dump($now);
+          //         method_field 行数生成包含模仿表单 HTTP 动作的 HTML hidden 域。下面的例子使用了 Blade 语法：
+          //         return method_field('DELETE');
+          //         return view('test');
+          //         logger 函数可以被用于将 debug 级别的消息写入 log：
+          //        logger('Debug message');
+          //如果不带参数调用此函数，它将返回 logger 实例：
+          //return logger()->error('You are not allowed here.');
+
+
+
+
+          //         info 函数将信息写入 log：
+          //echo         date('Ymd');
+          //        info('Some helpful information!');
+          //        可以将上下文数据数组传递给此函数：
+          //info('User login attempt failed.', ['id' => '$user->id']);
+
+
+
+          //         decrypt 函数可以使用 Laravel 的 加密解密机制:
+          //         dispatch 函数将给定的 任务 推送到 Laravel 任务队列中：
+          //         dump 打印给定的变量： [会继续执行]
+          //$user = factory(App\User::class)->make();
+
+
+
+
+          $value='';
+          dd($value);
+
+          //        abort(403);
+          //        abort(403, 'Unauthorized.');
+         */
+        //如果给定的布尔表达式计算结果为 true， abort_if 函数将抛出一个 HTTP 异常：
+//        abort_if(! Auth::user()->isAdmin(), 403);
+//        与 abort_if 作用相反
+//        abort_unless(Auth::user()->isAdmin(), 403);
+//        app 函数返回 服务容器 实例：
+//        $container = app();
+//        print_r($container);
+        //你可以传递一个类或接口名称来从容器中解析它：
+//        $api = app('HelpSpot\API');
+//        $user = auth()->user();
+//        var_dump($user);
+//        return back();
+//        $password = bcrypt('my-secret-password');
+//        return $password;
+//        $value = cache('key');
+//        return $value;
+//        $collection = collect(['taylor', 'abigail']);
+//        return $collection;
+//        你也可以在运行时通过传递一个键／值对数组来设置配置变量：
+//        config(['app.debug' => true]);
+//        $cookie = cookie('name', 'value', 10);
+//        return $cookie;
+        //csrf_field 函数生成一个包含 CSRF 令牌值的 HTML 输入表单字段 hidden 。例如，使用 Blade 语法：
+//        echo $token = csrf_token();
+//        return csrf_field();
+    }
 
     /**
      * 数组 & 对象
@@ -421,43 +600,18 @@ class Funchelp extends Controller {
 //        $url = url('user/profile');
 //        $url = url('user/profile', [1]);
 //        echo $url;
-        
+
         $current = url()->current();
-        echo $current,"\n";
-        
+        echo $current, "\n";
+
         echo "<a href='http://laravel.ifentong.com/funsurls?id=333'>ssssss</a>";
-        
+
         //完整地址带参
         $full = url()->full();
-        echo $full,"\n";
-        
+        echo $full, "\n";
+
         $previous = url()->previous();
         echo $previous;
     }
-    
-    
-    public function others()
-    {
-//        abort(403);
-//        abort(403, 'Unauthorized.');
-        //如果给定的布尔表达式计算结果为 true， abort_if 函数将抛出一个 HTTP 异常：
-//        abort_if(! Auth::user()->isAdmin(), 403);
-//        与 abort_if 作用相反
-//        abort_unless(Auth::user()->isAdmin(), 403);
-//        app 函数返回 服务容器 实例：
-//        $container = app();
-//        print_r($container);
-        //你可以传递一个类或接口名称来从容器中解析它：
-//        $api = app('HelpSpot\API');
-        
-        $user = auth()->user();
-        var_dump($user);
-
-
-
-
-    }
-    
-    
 
 }
