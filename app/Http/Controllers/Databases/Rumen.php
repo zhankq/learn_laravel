@@ -23,6 +23,11 @@ class Rumen extends Controller{
         return "a";
     }
     
+//        使用多个数据库连接
+    public function connectMore(){
+
+    }
+    
     
     
     
