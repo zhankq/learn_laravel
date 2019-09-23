@@ -21,3 +21,6 @@ Route::get('/funstring',"Funchelp@used_string");
 
 Route::get('/funsurls',"Funchelp@used_urls")->name('func');
 Route::get('/others',"Funchelp@others");
+
+Route::get('/dbrumen/read_write',"Databases\Rumen@readWrite");
+
