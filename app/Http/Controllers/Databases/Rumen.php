@@ -21,15 +21,25 @@ class Rumen extends Controller {
 
 //        数据库事务
     protected function transaction() {
-        
+
         $s = DB::transaction(function () {
-            DB::table('test')->update(['phone' => '10086']);
-            DB::table('posts')->delete();
-        });
-        
-var_dump($s);
-        
-        
+                    DB::table('test')->update(['phone' => '10086']);
+                    DB::table('posts')->delete();
+                });
+
+        var_dump($s);
+        /* //死锁
+          DB::transaction(function () {
+          DB::table('users')->update(['votes' => 1]);
+
+          DB::table('posts')->delete();
+          }, 5);
+         */
+
+//        手动使用事务
+//        DB::beginTransaction();
+//        DB::rollBack();
+//        DB::commit();
         
     }
 
@@ -54,7 +64,4 @@ var_dump($s);
     }
 
 //    监听查询事件
-    
-    
-    
 }
