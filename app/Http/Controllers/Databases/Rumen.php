@@ -21,11 +21,16 @@ class Rumen extends Controller {
 
 //        数据库事务
     protected function transaction() {
-        DB::transaction(function () {
-            DB::table('users')->update(['votes' => 1]);
-
+        
+        $s = DB::transaction(function () {
+            DB::table('test')->update(['phone' => '10086']);
             DB::table('posts')->delete();
         });
+        
+var_dump($s);
+        
+        
+        
     }
 
     //实现读写分离
@@ -49,4 +54,7 @@ class Rumen extends Controller {
     }
 
 //    监听查询事件
+    
+    
+    
 }
