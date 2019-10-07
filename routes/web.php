@@ -25,4 +25,6 @@ Route::get('/others',"Funchelp@others");
 Route::get('/dbrumen/read_write',"Databases\Rumen@readWrite");
 Route::get('/dbrumen/connect_more',"Databases\Rumen@connectMore");
 Route::get('/dbrumen/transaction',"Databases\Rumen@transaction");
+#查询构造器
+Route::get('/dbqueries/index',"Databases\Queries@index");
 
