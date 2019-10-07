@@ -26,10 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191); //add fixed sql [当时安装laravel-admin时自动加上的]
         DB::listen(function ($query) {
-           echo  $query->sql;
+           echo  $query->sql,"\n";
             $parm = $query->bindings;
             print_r($parm);
-           echo  $query->time;
+//           echo  $query->time;
         });
         //
     }
