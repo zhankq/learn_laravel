@@ -28,3 +28,8 @@ Route::get('/dbrumen/transaction',"Databases\Rumen@transaction");
 #查询构造器
 Route::get('/dbqueries/index',"Databases\Queries@index");
 
+#查询构造器
+Route::get('/dbqueries/index',"Databases\Queries@index");
+Route::get('/dbqueries/result',"Databases\Dueries@result");
+
+
