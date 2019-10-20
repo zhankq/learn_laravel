@@ -147,6 +147,79 @@ class Dueries extends Controller {
           print_r($users);
          */
 //        其他 Where 语句
+//        whereBetween whereBetween 方法验证字段值是否在给定的两个值之间：
+//        $users = DB::table('users')->whereBetween('id', [2, 3])->get();
+//        print_r($users);
+        #whereNotBetween 方法验证字段值是否在给定的两个值之外：
+//        $users = DB::table('users')->whereNotBetween('id', [2, 3])->get();
+//        print_r($users);
+//        whereIn / whereNotIn
+//        $users = DB::table('users')->whereIn('id', [2, 3])->get();
+//        $users = DB::table('users')->whereNotIn('id', [2, 3])->get();
+//        print_r($users);
+//whereNull / whereNotNull
+//        whereNull 方法验证指定的字段必须是 NULL:
+//$users = DB::table('users')->whereNull('testnull')->get();
+//        $users = DB::table('users')->whereNotNull('testnull')->get();
+//        print_r($users);
+//        whereDate / whereMonth / whereDay / whereYear / whereTime
+//        $users = DB::table('users')->whereDate('testnull', '2018-09-08')->get();
+//        $users = DB::table('users')->whereMonth('testnull', '9')->get();
+//        print_r($users);
+//        whereDay 方法用于比较字段值与一月中指定的日期:
+//        select * from `users` where day(`testnull`) = ?
+//        $users = DB::table('users')->whereDay('testnull', '8')->get();
+//        print_r($users);
+//        whereYear 方法用于比较字段值与指定的年份:
+//        select * from `users` where year(`testnull`) = ?
+//        $users = DB::table('users')->whereYear('testnull', '2018')->get();
+//        print_r($users);
+//        $users = DB::table('users')->whereTime('testnull', '=', '11:20:45')->get();
+//        print_r($users);
+//        whereColumn 方法用于比较两个字段的值 是否相等:
+//        select * from `users` where `username` = `email`
+//        $users = DB::table('users')->whereColumn('phone', 'email')->get();
+//        print_r($users);
+//        你也可以传入一个比较运算符:
+//        select * from `users` where `updated_at` >= `created_at`
+        /*
+          $users = DB::table('users')->whereColumn('updated_at', '>=', 'created_at')->get();
+          print_r($users);
+
+          //        whereColumn 你也可以传递数组 用 and 运算符链接:
+          $users = DB::table('users')
+          ->whereColumn([
+          ['phone', '=', 'email'],
+          ['updated_at', '>=', 'created_at']
+          ])->get();
+          print_r($users);
+         */
+
+//参数分组
+//有时候你需要创建更高级的 where 子句，例如「where exists」或者嵌套的参数分组。 Laravel 的查询构造器也能够处理这些
+//select * from `users` where `email` = ? and (`phone` > ? or `status` = ?)
+        /*
+          $users = DB::table('users')
+          ->where('email', '=', '10086')
+          ->where(function ($query) {
+          $query->where('phone', '>', 10086)
+          ->orWhere('status', '=', '1');
+          })->get();
+          print_r($users);
+         */
+//Where Exists 语句
+//        select * from `users` where exists (select 1 from `orders` where orders.userid = users.id)
+        /*
+          DB::table('users')
+          ->whereExists(function ($query) {
+          $query->select(DB::raw(1))
+          ->from('orders')
+          ->whereRaw('orders.userid = users.id');
+          })->get();
+         */
+//JSON Where 语句
+
+
 
 
         return 'aa';
