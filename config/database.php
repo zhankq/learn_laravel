@@ -39,6 +39,8 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
         'mysql' => [
+
+/*            
 //            =============用于读写分离的测试==========================================
             'read' => [
 //                'host' => ['127.0.0.1'],
@@ -50,11 +52,14 @@ return [
             ],
             'sticky' => true, #时间是多久又没有说
 //            =============用于读写分离的测试====================================
+*/          
+            
+            
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
+            'database' => 'laravel_read',#env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),

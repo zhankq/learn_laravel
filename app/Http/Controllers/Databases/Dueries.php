@@ -208,7 +208,7 @@ class Dueries extends Controller {
           print_r($users);
          */
 //Where Exists 语句
-//        select * from `users` where exists (select 1 from `orders` where orders.userid = users.id)
+//       select * from `users` where exists (select 1 from `orders` where orders.userid = users.id)
         /*
           DB::table('users')
           ->whereExists(function ($query) {
@@ -218,10 +218,20 @@ class Dueries extends Controller {
           })->get();
          */
 //JSON Where 语句
+//Ordering, Grouping, Limit, & Offset
+//        $users = DB::table('users')->orderBy('name', 'desc')->get();
+//        print_r($users);
+        
+//        latest / oldest latest 和 oldest 方法可以使你轻松地通过日期排序 -->最早的记录
+//        $users = \App\Model\User::oldest()->first()->toArray();
+//        $users = \App\Model\User::latest()->first()->toArray();
+//        print_r($users);
 
-
-
-
+//        inRandomOrder inRandomOrder 方法被用来将结果随机排序
+        //select * from `users` order by RAND() limit 1
+        $randomUser = DB::table('users')->inRandomOrder()->first();
+        print_r($randomUser);
+        
         return 'aa';
     }
 
